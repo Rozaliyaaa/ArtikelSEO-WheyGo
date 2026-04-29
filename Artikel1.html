@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susu Protein Murah untuk Anak Kos | WheyGo</title>
+    <!-- Import Font: Poppins (Sporty/Logo), Lora (Klasik/Heading) & Nunito (Modern/Bacaan) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Palette Light (Vibrant Blue) */
+            --bg-body: #f4f7fb; 
+            --bg-container: #ffffff;
+            --text-main: #334155; 
+            --text-muted: #64748b;
+            --heading-color: #0044cc; 
+            --accent-blue: #38bdf8; 
+            --border-radius: 12px;
+            --footer-bg: #0f172a;
+        }
+
+        [data-theme="dark"] {
+            /* Palette Dark Mode */
+            --bg-body: #050b14; 
+            --bg-container: #111827; 
+            --text-main: #ffffff; 
+            --text-muted: #cbd5e1;
+            --heading-color: #38bdf8; 
+            --accent-blue: #0ea5e9; 
+            --footer-bg: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Navbar */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        /* LOGO WHEYGO */
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff !important; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .logo span { 
+            color: #38bdf8 !important; 
+        }
+
+        /* TEMA WAPPER & TOGGLE SWITCH */
+        .theme-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 52px; 
+            height: 28px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            padding: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2) inset;
+        }
+
+        /* Lingkaran (Thumb) di dalam Switch */
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* State saat Dark Mode aktif */
+        [data-theme="dark"] .theme-toggle {
+            background-color: #0ea5e9;
+            border-color: #38bdf8;
+            box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
+        }
+        [data-theme="dark"] .theme-toggle::after {
+            transform: translateX(24px); 
+        }
+
+        .theme-text {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 80vh;
+            min-height: 500px;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 10%, rgba(15, 23, 42, 0.3) 100%), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 5% 10%;
+        }
+
+        .hero-title {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: #ffffff;
+            max-width: 700px;
+            font-weight: 700;
+        }
+        .hero-title span {
+            color: #38bdf8; 
+            font-style: italic;
+        }
+
+        /* Container Artikel */
+        .container {
+            max-width: 850px;
+            margin: -40px auto 40px;
+            padding: 40px;
+            background-color: var(--bg-container);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .slug-meta {
+            display: inline-block;
+            font-family: 'Lora', serif;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 5px;
+        }
+
+        h1, h2, h3 { font-family: 'Lora', serif; color: var(--heading-color); line-height: 1.3; }
+        .seo-h1 { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        
+        h2 { font-size: 2rem; margin: 50px 0 25px; font-weight: 700; border-left: 6px solid var(--accent-blue); padding-left: 15px;}
+        h3 { font-size: 1.4rem; margin: 35px 0 15px; font-weight: 600; }
+        p { margin-bottom: 20px; }
+
+        .lead-paragraph {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .spicy-quote {
+            text-align: center;
+            font-family: 'Lora', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--heading-color);
+            margin: 40px 0;
+            padding: 25px;
+            background: rgba(56, 189, 248, 0.05); 
+            border-radius: var(--border-radius);
+            border-top: 2px dashed var(--accent-blue);
+            border-bottom: 2px dashed var(--accent-blue);
+        }
+
+        /* CUSTOM LIST */
+        .custom-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: my-counter;
+            margin: 30px 0;
+        }
+        .custom-list li {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        .custom-list li::before {
+            counter-increment: my-counter;
+            content: "0" counter(my-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            border-bottom: 3px solid var(--heading-color);
+            line-height: 1;
+        }
+        .custom-list h4 { font-family: 'Lora', serif; font-size: 1.25rem; color: var(--heading-color); margin-bottom: 5px; }
+
+        .article-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin: 35px 0;
+        }
+
+        .related-link {
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 15px 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            background-color: rgba(56, 189, 248, 0.03);
+        }
+        .related-link span { color: var(--heading-color); margin-right: 10px; }
+        .related-link a { color: var(--heading-color); text-decoration: underline; text-decoration-color: var(--accent-blue); text-decoration-thickness: 2px; }
+        .related-link a:hover { color: var(--accent-blue); }
+
+        .widget-box {
+            background-color: transparent;
+            border: 2px dashed var(--accent-blue);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin: 40px 0;
+            text-align: center;
+        }
+        .widget-box input, .widget-box select {
+            width: 100%; max-width: 350px; padding: 12px; margin: 10px 0;
+            border-radius: 8px; border: 1px solid var(--text-muted);
+            font-family: inherit; font-size: 1rem;
+            background: var(--bg-body); color: var(--text-main);
+        }
+        .btn-hitung {
+            background-color: var(--heading-color); color: #fff; border: none;
+            padding: 12px 30px; border-radius: 8px; font-weight: 700;
+            cursor: pointer; margin-top: 15px; transition: 0.3s;
+        }
+        .btn-hitung:hover { background-color: var(--accent-blue); }
+
+        /* FLOATING CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px; 
+            right: 30px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%) !important;
+            color: #ffffff !important; 
+            padding: 16px 32px;
+            border-radius: 50px; 
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 
+                0 8px 25px rgba(56, 189, 248, 0.4),
+                0 0 20px rgba(56, 189, 248, 0.3);
+            text-decoration: none; 
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .floating-cta:hover { 
+            transform: translateY(-8px) scale(1.05); 
+            box-shadow: 
+                0 15px 35px rgba(56, 189, 248, 0.6),
+                0 0 30px rgba(56, 189, 248, 0.5);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .floating-cta:active {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* Footer Copyright */
+        footer {
+            background-color: var(--footer-bg);
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.95rem;
+            border-top: 4px solid var(--accent-blue);
+        }
+        footer span {
+            color: #38bdf8; 
+            font-weight: 700;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .container { padding: 25px; margin: -30px 15px 40px; }
+            h2 { font-size: 1.6rem; }
+            .custom-list li { padding-left: 50px; }
+            .custom-list li::before { font-size: 1.5rem; }
+            .floating-cta { bottom: 20px; right: 20px; padding: 14px 24px; font-size: 1rem; }
+            .logo { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Whey<span>Go</span></div>
+        <div class="theme-wrapper">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme"></button>
+            <span class="theme-text" id="themeText">Light Mode</span>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-title">
+            Solusi Otot Kencang, <br> <span>Budget Aman</span> untuk Anak Kos.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="slug-meta">situsanda.com/susu-protein-murah-untuk-anak-kos</div>
+
+        <h1 class="seo-h1">Susu Protein Murah untuk Anak Kos: Solusi Otot Kencang Budget Aman</h1>
+
+        <div class="lead-paragraph">
+            <p>Mencari <strong>susu protein murah untuk anak kos</strong> seringkali terasa seperti mencari <em>bug</em> di dalam ribuan baris kode program—susah-susah gampang tapi bikin penasaran. Waktu terbatas, mobilitas tinggi di kampus, dan dompet yang menjerit di akhir bulan membuat makanan instan tampak jauh lebih menggoda. Namun, bagi kamu yang ingin menjaga bentuk tubuh, menemukan <strong>susu protein murah untuk anak kos</strong> yang berkualitas menjadi jawaban mutlak atas dilema tersebut.</p>
+        </div>
+
+        <p>Sebagai mahasiswa rantau, kita selalu dihadapkan pada satu dilema besar setiap harinya: memenuhi nutrisi untuk badan atau menyelamatkan uang bulanan. Apalagi kalau kamu tipe mahasiswa yang rajin ke <em>gym</em> atau minimal rutin <em>workout</em> di kamar setelah lelah nge-lab seharian. Asupan protein itu harga mati. Kalau asupannya kurang, otot nggak akan berkembang maksimal, malah susut. Oleh karena itu, memiliki referensi nutrisi yang tepat menjadi misi wajib bagi para pejuang otot.</p>
+
+        <div class="spicy-quote">
+            "Rome wasn't built in a day, but they were laying bricks every hour. Jangan sampai mimpimu punya badan atletis kalah sama struk minimarket di akhir bulan."
+        </div>
+
+        <h2>Mengapa Mencari Susu Protein Murah untuk Anak Kos Itu Penting?</h2>
+        <p>Hidup di kosan menuntut kita untuk pandai mengatur <em>logic</em> keuangan. Masalah utamanya adalah dominasi makanan tinggi karbohidrat dan lemak, namun sangat rendah protein. Nasi kucing, mi instan, atau gorengan di depan kampus adalah penyelamat perut di akhir bulan, tapi jelas bukan penyelamat ototmu. Padahal, protein adalah makronutrisi esensial. Ibarat <em>hardware</em> komputer, protein adalah komponen <em>RAM</em> dan <em>Processor</em> yang menyusun jaringan otot, menjaga sistem imun biar nggak gampang tumbang pas <em>deadline</em> tugas numpuk, dan bikin perut kenyang lebih lama.</p>
+
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1470&auto=format&fit=crop" alt="Workout anak kos di kamar" class="article-img">
+
+        <p>Membeli dada ayam atau daging sapi filet setiap hari mungkin terdengar sangat ideal secara teori gizi. Tapi mari kita bicara realita lapangan: jadwal kuliah padat, tugas praktikum menumpuk, dan fasilitas dapur kosan yang seringkali tidak mendukung. Proses memasak menjadi terlalu repot, memakan waktu, dan menguras <em>effort</em>. Di sinilah suplemen menjadi jalan pintas paling rasional dan efisien. Namun, masalah kembali muncul ketika mayoritas suplemen impor mematok harga yang bikin jantungan. Inilah alasan mendasar kenapa pencarian akan <strong>susu protein murah untuk anak kos</strong> terus menjadi topik hangat.</p>
+
+        <h3>Fungsi Esensial Protein bagi Tubuh</h3>
+        <p>Sebelum kamu terburu-buru memutuskan beli <strong>susu protein murah untuk anak kos</strong>, kamu harus paham dulu kenapa nutrisi ini sangat krusial:</p>
+        
+        <ul class="custom-list">
+            <li>
+                <h4>Pemulihan Jaringan Otot</h4>
+                <p>Setelah kamu mengangkat beban, serat otot mengalami <em>micro-tears</em> (robekan mikroskopis). Protein bertugas menjahit dan memperbaiki robekan ini sehingga otot tumbuh jauh lebih besar dan kuat.</p>
+            </li>
+            <li>
+                <h4>Efisiensi Metabolisme Tubuh</h4>
+                <p>Mencerna protein membutuhkan energi lebih besar daripada mencerna lemak. Artinya, tubuhmu membakar kalori ekstra secara pasif hanya untuk memproses <strong>susu protein murah untuk anak kos</strong> yang baru saja kamu minum.</p>
+            </li>
+            <li>
+                <h4>Kesehatan Jangka Panjang</h4>
+                <p>Asam amino dalam protein juga menyusun sel rambut, kulit, kuku, serta memastikan antibodi bekerja maksimal menjaga imunitasmu di tengah cuaca yang tak menentu.</p>
+            </li>
+        </ul>
+
+        <p>Banyak yang salah kaprah mengira suplemen itu pasti menguras kantong. Padahal, kalau jeli melakukan riset, <strong>susu protein murah untuk anak kos</strong> dengan kualitas murni itu benar-benar eksis di pasaran.</p>
+
+        <div class="related-link">
+            <span>Baca juga:</span> <a href="#">Tips Hidup Hemat Anak Kos yang Tetap Sehat dan Bugar</a>
+        </div>
+
+        <div class="widget-box">
+            <h3>Cek Kebutuhan Protein Harianmu</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Mengetahui angka pasti adalah langkah pertama membangun otot yang efektif.</p>
+            <input type="number" id="berat" placeholder="Masukkan berat badan Anda (kg)">
+            <br>
+            <select id="aktivitas">
+                <option value="1.2">Tingkat Aktivitas: Sedentari (Jarang Olahraga)</option>
+                <option value="1.6">Tingkat Aktivitas: Aktif (3-4x seminggu)</option>
+                <option value="2.0">Tingkat Aktivitas: Sangat Aktif (Angkat Beban Intens)</option>
+            </select>
+            <br>
+            <button class="btn-hitung" onclick="hitungProtein()">Kalkulasi Sekarang</button>
+            <div id="hasil-kalkulator" style="margin-top: 20px; font-weight: 700; color: var(--accent-blue); font-size: 1.1rem;"></div>
+        </div>
+
+        <h2>WheyGo: Pilihan Utama Susu Protein Murah untuk Anak Kos Saat Ini</h2>
+        <p>Di tengah lautan merek suplemen komersial yang menguras kantong, muncullah WheyGo. Ini bukan sekadar produk jualan, melainkan solusi <em>open-source</em> buat kamu yang butuh asupan nutrisi berkualitas tanpa hambatan biaya. WheyGo hadir untuk mendobrak stigma lama bahwa suplemen yang bagus itu harus mahal. Bagi para mahasiswa, WheyGo adalah representasi paling nyata dari <strong>susu protein murah untuk anak kos</strong> yang sama sekali tidak murahan kualitasnya.</p>
+
+        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=1470&auto=format&fit=crop" alt="Bubuk susu protein scoop" class="article-img">
+
+        <h3>Kenapa Memilih WheyGo?</h3>
+        <p>Sebagai mahasiswa yang terbiasa berpikir logis, kamu pasti butuh alasan konkret mengapa produk ini layak mendapat gelar <strong>susu protein murah untuk anak kos</strong> paling ideal:</p>
+
+        <ul class="custom-list">
+            <li>
+                <h4>Harga per Serving yang Rasional</h4>
+                <p>Coba bandingkan dengan seksama. Harga satu <em>scoop</em> WheyGo jauh lebih terjangkau daripada harga segelas es kopi susu kekinian yang biasa menemanimu begadang.</p>
+            </li>
+            <li>
+                <h4>Profil Asam Amino yang Kuat</h4>
+                <p>Walaupun masuk kategori <strong>susu protein murah untuk anak kos</strong>, WheyGo tetap mempertahankan kadar protein tinggi per porsinya untuk memastikan ambang batas sintesis protein ototmu tercapai.</p>
+            </li>
+            <li>
+                <h4>Varian Rasa yang Elegan</h4>
+                <p>Nggak ada ceritanya minum suplemen kayak menelan obat. Varian rasa yang ditawarkan sangat nyaman di lidah, membuat jadwal minum <strong>susu protein murah untuk anak kos</strong> ini jadi momen yang ditunggu.</p>
+            </li>
+        </ul>
+
+        <p>Lalu, bagaimana dengan kepraktisannya? Tenang saja, <strong>susu protein murah untuk anak kos</strong> ini diformulasikan agar gampang larut walau cuma diaduk menggunakan sendok biasa. Punya <strong>susu protein murah untuk anak kos</strong> harus dibarengi dengan eksekusi yang praktis. Tuangkan satu <em>scoop</em> <strong>susu protein murah untuk anak kos</strong> ini ke dalam mangkuk berisi oatmeal instan untuk sarapan, atau manfaatkan waktu 15-30 menit pasca-latihan untuk meminum <strong>susu protein murah untuk anak kos</strong> ini saat otot sedang lapar.</p>
+
+        <div class="spicy-quote">
+            "Otot tidak mengerti seberapa mahal merek suplemenmu. Otot hanya mengerti konsistensi asupan asam amino yang masuk setiap harinya."
+        </div>
+
+        <div class="related-link">
+            <span>Baca juga:</span> <a href="#">Menu Diet Murah Meriah untuk Menurunkan Berat Badan</a>
+        </div>
+
+        <h2>Simulasi Nyata: Efektivitas Susu Protein Murah untuk Anak Kos</h2>
+        <p>Mari kita lihat simulasi nyata dari Budi, seorang mahasiswa semester tiga dengan <em>budget</em> makan harian maksimal Rp50.000. Sebelumnya, Budi frustrasi karena uang jajannya habis hanya untuk dada ayam, dan massa ototnya tak kunjung naik karena sering bolong jadwal makan.</p>
+
+        <p>Sadar polanya berantakan, Budi mengubah strategi nutrisinya. Ia menjadikan <strong>susu protein murah untuk anak kos</strong> dari WheyGo sebagai sumber protein andalan setiap pagi dan pasca-latihan. Karena harganya ekonomis, sisa uang makannya bisa ia belikan lauk nabati bergizi di kantin. Kehadiran <strong>susu protein murah untuk anak kos</strong> terbukti menyelamatkan keuangan sekaligus fisiknya; Budi sukses menaikkan 2,5 kg massa otot murni dalam tiga bulan.</p>
+
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1470&auto=format&fit=crop" alt="Mahasiswa fitness angkat beban" class="article-img">
+
+        <div class="related-link">
+            <span>Baca juga:</span> <a href="#">Cara Menambah Massa Otot dengan Latihan Rumahan</a>
+        </div>
+
+        <h3>Investasi Kesehatan Tanpa Beban Finansial</h3>
+        <p>Kesimpulannya, transformasi fisik yang mengagumkan tidak mewajibkan modal finansial yang tak terbatas. Nutrisi yang konsisten adalah kunci utama, dan konsistensi itu hanya tercipta jika produknya mudah diakses. Jangan biarkan <em>budget</em> menghalangi mimpimu memiliki badan bugar. Segera jadikan <strong>susu protein murah untuk anak kos</strong> seperti WheyGo sebagai amunisi andalanmu mulai hari ini!</p>
+
+    </div>
+
+    <!-- Floating Button Keranjang -->
+    <a href="#" class="floating-cta">🛒 Belanja Sekarang</a>
+
+    <!-- Footer Copyright -->
+    <footer>
+        © 2026 <span>WheyGo</span> · Susu Protein Anak Kos · wheygo.id
+    </footer>
+
+    <script>
+        // Fitur Dark Mode Toggle (Switch Slider Style)
+        const themeToggle = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+        let isDark = localStorage.getItem('theme') === 'dark';
+
+        function initTheme() {
+            if (isDark) {
+                body.setAttribute('data-theme', 'dark');
+                themeText.innerHTML = 'Dark Mode';
+            } else {
+                themeText.innerHTML = 'Light Mode';
+            }
+        }
+
+        function toggleTheme() {
+            isDark = !isDark;
+            
+            if (isDark) {
+                body.setAttribute('data-theme', 'dark');
+                themeText.innerHTML = 'Dark Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.removeAttribute('data-theme');
+                themeText.innerHTML = 'Light Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        initTheme(); // Set tema awal
+
+        // Logic Kalkulator Protein
+        function hitungProtein() {
+            const berat = document.getElementById('berat').value;
+            const aktivitas = document.getElementById('aktivitas').value;
+            const hasil = document.getElementById('hasil-kalkulator');
+
+            if(!berat || berat <= 0) {
+                hasil.style.color = '#ff4d4f'; 
+                hasil.innerHTML = "Mohon masukkan data berat badan yang valid.";
+                return;
+            }
+
+            const total = Math.round(berat * aktivitas);
+            hasil.style.color = 'var(--heading-color)';
+            hasil.innerHTML = `✨ Kebutuhan Harian Anda: <strong>${total} gram protein</strong>. <br> <span style="font-size:0.95rem; font-weight: 600; color:var(--text-muted);">(1 Porsi WheyGo memenuhi ~25g target ini)</span>`;
+        }
+    </script>
+</body>
+</html>
